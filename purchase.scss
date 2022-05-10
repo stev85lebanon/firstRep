@@ -1,0 +1,105 @@
+
+
+//colors
+
+$primary-color: rgba(18, 59, 196, 0.726);
+$secondary-color: red;
+$link-color:purple;
+$btn-color: rgb(31, 176, 233);
+$header-color:#fff;
+$hover-color: yellow;
+//font
+$body-font: helvetica, sans-serif;
+//width&height
+$body-width: 400px;
+$body-height: 900px;
+
+//function
+@function text-color($color){
+  @if(lightness($color) > 60){
+      @return #333;}  
+        @else {
+          @return #fff;}}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;}
+a {
+    //color:$link-color;
+    color: text-color($primary-color);
+    text-decoration: none;
+    //&:hover{  color:$hover-color;}
+  }
+
+body{
+    //background-color:darken($primary-color,5%);
+    background-image: url("shopping2.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: $secondary-color;
+    line-height: 1.6;
+    font-family: $body-font;}
+.showcase {
+      background-color: $primary-color;
+      color: text-color($primary-color);
+      height: $body-height;
+      padding: 25px;
+
+    nav {
+      display: flex;
+      text-align: center;
+      justify-content: space-between;
+   
+        ul {
+          display: flex;  
+          list-style-type: none;
+     
+            li {
+               padding: 15px;
+              }} 
+              
+   a{
+           &:hover{ 
+                //color:$hover-color;
+                color: text-color($primary-color);
+                background-color: $secondary-color;
+                &::after{
+                  
+                  height: 3px;
+                  width: 100%;
+                  background-color: darken($primary-color,15%);
+                  position: absolute;
+                  bottom: -10px;
+                  transition: 0.5s;
+           }}}
+  }
+   &-content{
+     height: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     img{
+        width:40%;
+        margin-left: 20%;
+        //position: absolute;
+      }}
+ }
+%btn{
+  display: inline-block;
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin: 5px;}
+.btn-primary{
+  @extend %btn;
+  background-color: lighten($primary-color,10%);}       
+.btn-secondary{
+  @extend %btn;
+  background-color: darken($primary-color,10%);} 
+.container {
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: hidden;}
+ 
+
+  
